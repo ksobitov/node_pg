@@ -1,9 +1,7 @@
-```markdown
 # Comprehensive Guide to Connecting a Docker Container to a Local PostgreSQL Database
 
 This guide details the process of setting up a connection from a Docker container to a local PostgreSQL database, including configuration adjustments, network settings, volume management, and log inspection for troubleshooting.
 
-```markdown
 # Comprehensive Guide for PostgreSQL with Docker
 
 This README provides instructions for setting up a Node.js application with PostgreSQL in two scenarios:
