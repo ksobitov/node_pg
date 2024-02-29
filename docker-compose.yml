@@ -2,35 +2,19 @@ version: '3'
 
 services:
   app:
+    container_name: app
+    network_mode: "host"
+    # image: ksobitov/node_pg:latest
+    restart: always
     build:
       context: .
       dockerfile: Dockerfile
     ports:
       - "5000:5000"
-    depends_on:
-      - db
     environment:
       - PORT=5000
-      - DB_HOST=db
+      - DB_HOST=localhost
       - DB_USER=komil
-      - DB_NAME=crud
+      - DB_NAME=komil
       - DB_PASSWORD=password
-      - DB_PORT=5432
-
-
-  # PostgreSQL database
-  db:
-    image: postgres:latest
-    restart: on-failure
-    environment:
-      POSTGRES_USER: komil
-      POSTGRES_PASSWORD: password
-      POSTGRES_DB: crud
-    ports:
-      - "5432:5432"
-    volumes:
-      - pg-data:/var/lib/postgresql/data
-      - ./database.sql:/docker-entrypoint-initdb.d/database.sql
-
-volumes:
-  pg-data:
+      - DB_PORT=5433

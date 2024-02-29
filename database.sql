@@ -1,8 +1,6 @@
 -- Create the users table with UUID primary key
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 
-CREATE DATABASE crud_test OWNER komil;
-
 CREATE TABLE users (
   user_id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
   username VARCHAR(16) UNIQUE NOT NULL,
