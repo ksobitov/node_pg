@@ -4,11 +4,8 @@ services:
   app:
     container_name: app
     network_mode: "host"
-    # image: ksobitov/node_pg:latest
+    image: ksobitov/node_pg:latest
     restart: always
-    build:
-      context: .
-      dockerfile: Dockerfile
     ports:
       - "5000:5000"
     environment:
