@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app-deployment
+  labels:
+    app: backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: backend
+  template:
+    metadata:
+      labels:
+        app: backend
+    spec:
+      containers:
+        - name: app
+          image: ksobitov/node_pg:latest
+          env:
+            - name: PORT
+              value: "5000"
+            - name: DB_HOST
+              value: "postgres"
+            - name: DB_USER
+              value: "admin"
+            - name: DB_NAME
+              value: "postgresdb"
+            - name: DB_PASSWORD
+              value: "psltest"
+            - name: DB_PORT
+              value: "5432"
+          ports:
+            - containerPort: 5000
